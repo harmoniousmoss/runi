@@ -1,0 +1,105 @@
+<!-- 🌐 Main container with styling using Tailwind CSS -->
+<div class="max-w-md p-6 mx-auto mt-10 border rounded shadow">
+    <!-- 🧾 App Title -->
+    <h1 class="mb-4 text-2xl font-bold text-center">🔐 PPG - Phoenix Password Generator</h1>
+
+    <!-- 🔢 Form for selecting password length and generating a password -->
+    <form id="form" class="space-y-4">
+        <!-- Label for length input -->
+        <label class="block text-sm font-medium text-gray-700" for="length">
+            Password Length (1-24)
+        </label>
+
+        <!-- Numeric input field for password length (min 1, max 24) -->
+        <input type="number" id="length" name="length" min="1" max="24" value="12"
+            class="w-full px-3 py-2 border rounded" />
+
+        <!-- Submit button -->
+        <button type="submit" class="w-full py-2 text-white bg-blue-600 rounded hover:bg-blue-700">
+            Generate Password
+        </button>
+    </form>
+
+    <!-- 📦 Section for showing the result and strength feedback -->
+    <div class="mt-6">
+        <!-- Display the generated password -->
+        <p id="result" class="font-mono text-lg break-words"></p>
+
+        <!-- Password strength meter (initially hidden) -->
+        <div id="strength-wrapper" class="hidden mt-2">
+            <!-- Colored bar indicating strength level -->
+            <div class="h-2 rounded-full" id="strength-bar"></div>
+            <!-- Text label indicating strength level -->
+            <p id="strength-label" class="mt-1 text-sm font-semibold"></p>
+        </div>
+
+        <!-- 📋 Copy to clipboard button (initially hidden) -->
+        <button id="copy" class="hidden w-full py-2 mt-4 text-white bg-gray-700 rounded hover:bg-gray-800">
+            Copy to Clipboard
+        </button>
+    </div>
+</div>
+
+<!-- 🚀 JavaScript: Handles password generation, strength evaluation, and clipboard copy -->
+<script>
+    // 📌 Select DOM elements
+    const form = document.getElementById("form");
+    const result = document.getElementById("result");
+    const copyBtn = document.getElementById("copy");
+    const strengthBar = document.getElementById("strength-bar");
+    const strengthLabel = document.getElementById("strength-label");
+    const strengthWrapper = document.getElementById("strength-wrapper");
+
+    // 🧠 Function to evaluate password strength
+    function evaluateStrength(password) {
+        let score = 0;
+        if (password.length >= 8) score++;                           // Checks length
+        if (/[A-Z]/.test(password) && /[a-z]/.test(password)) score++; // Checks case mix
+        if (/[0-9]/.test(password)) score++;                         // Checks digits
+        if (/[^A-Za-z0-9]/.test(password)) score++;                 // Checks symbols
+
+        // 📊 Define strength levels and corresponding visual styles
+        const levels = [
+            { label: "Weak", color: "bg-red-500", percent: "33%" },
+            { label: "Medium", color: "bg-yellow-500", percent: "66%" },
+            { label: "Strong", color: "bg-green-500", percent: "100%" }
+        ];
+
+        // Return appropriate level or fallback to Weak
+        const level = levels[Math.min(score - 1, 2)];
+        return level || levels[0];
+    }
+
+    // 📥 Event handler for form submission
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Prevent page reload
+        const length = document.getElementById("length").value;
+
+        // 🛰️ Call backend API to generate password
+        const res = await fetch(`/api/generate?length=${length}`);
+        const data = await res.json();
+
+        // ✅ If password returned, display it and update strength meter
+        if (data.password) {
+            result.textContent = `🔑 ${data.password}`;
+            copyBtn.classList.remove("hidden");
+
+            const strength = evaluateStrength(data.password);
+            strengthBar.className = `h-2 rounded-full transition-all ${strength.color}`;
+            strengthBar.style.width = strength.percent;
+            strengthLabel.textContent = `Strength: ${strength.label}`;
+            strengthWrapper.classList.remove("hidden");
+
+            // 📋 Copy to clipboard logic
+            copyBtn.onclick = () => {
+                navigator.clipboard.writeText(data.password);
+                alert("Copied to clipboard!");
+            };
+        } else {
+            // ❌ Handle invalid input
+            result.textContent = "❌ Invalid input.";
+            copyBtn.classList.add("hidden");
+            strengthWrapper.classList.add("hidden");
+        }
+    });
+</script>
