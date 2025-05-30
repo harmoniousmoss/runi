@@ -1,10 +1,9 @@
+# 📄 Defines the view module responsible for rendering HTML templates for the PageController.
 defmodule PpgWeb.PageHTML do
-  @moduledoc """
-  This module contains pages rendered by PageController.
-
-  See the `page_html` directory for all templates available.
-  """
+  # 🧱 Inherits Phoenix HTML functionality (HEEx rendering, helpers, etc.)
   use PpgWeb, :html
 
+  # 📦 Embeds all .heex templates inside the "page_html/" folder.
+  # This allows Phoenix to compile them into function clauses like `index/1`
   embed_templates "page_html/*"
 end
