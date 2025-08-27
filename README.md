@@ -1,8 +1,8 @@
-# 🔐 PPG – Phoenix Password Generator
+# Phoenix Password Generator
 
-**PPG** is a minimal Elixir Phoenix web app that generates secure random passwords browser. Users can specify the length (up to 24 characters) and receive passwords that include symbols, numbers, and letters for standard security. Built with Phoenix 1.7+, no database.
+A secure password generation web application built with Phoenix Framework and Elixir. Features configurable password length (1-24 characters), real-time strength evaluation, and copy-to-clipboard functionality. Demonstrates full-stack development with Phoenix, Tailwind CSS styling, and API design. Built without database dependencies for lightweight deployment and optimal performance.
 
-## ✨ Features
+## Features
 
 - 🔢 Generate passwords with configurable length (1–24)
 - 🔐 Secure charset includes letters, numbers, and symbols
@@ -11,7 +11,7 @@
 - 📋 Copy-to-clipboard button
 - ⚡ No database required (Ecto-free)
 
-## 🧠 Password Strength Logic
+## Password Strength Logic
 
 | Criteria                    | Points |
 | --------------------------- | ------ |
@@ -24,7 +24,7 @@
 * 3: **Medium**
 * 4: **Strong**
 
-## 🗂️ File Structure Overview
+## File Structure Overview
 
 | File                                                | Purpose                                  |
 | --------------------------------------------------- | ---------------------------------------- |
