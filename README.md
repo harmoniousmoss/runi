@@ -1,6 +1,6 @@
 ## Runi - Phoenix Password Generator
 
-A secure password generation web application built with Phoenix Framework and Elixir. Features configurable password length (1-24 characters), real-time strength evaluation, and copy-to-clipboard functionality. Demonstrates full-stack development with Phoenix, Tailwind CSS styling, and API design. Built without database dependencies for lightweight deployment and optimal performance.
+Runi is a secure password generation web application built with Phoenix Framework and Elixir. Features configurable password length (1-24 characters), real-time strength evaluation, and copy-to-clipboard functionality. Demonstrates full-stack development with Phoenix, Tailwind CSS styling, and API design. Built without database dependencies for lightweight deployment and optimal performance.
 
 ## Features
 
