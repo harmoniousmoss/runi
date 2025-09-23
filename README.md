@@ -1,6 +1,6 @@
 ![FlexBit Professional Password Generator](https://icbotbz40ngrmv6r.public.blob.vercel-storage.com/FlexBit.png)
 
-## FlexBit - Professional Password Generator
+## Flexbit - Stunning, professional password generation
 
 FlexBit is a stunning, professional password generation web application built with Phoenix Framework and Elixir. Features a beautiful glassmorphism interface, configurable character sets, advanced animations, and comprehensive security options. Demonstrates modern full-stack development with Phoenix, advanced CSS techniques, and responsive design principles.
 
