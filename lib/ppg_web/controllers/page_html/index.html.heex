@@ -10,8 +10,8 @@
     </div>
 
     <!-- Main container with glassmorphism effect -->
-    <div class="flex flex-col items-center justify-center h-screen p-4">
-        <div class="w-full max-w-lg backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-8 transform transition-all duration-500 hover:scale-105">
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 py-8">
+        <div class="w-full max-w-lg backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-6">
 
             <!-- 🏆 Stunning Header -->
             <div class="text-center mb-6">
@@ -53,27 +53,27 @@
                 <div class="space-y-3">
                     <h3 class="text-white/90 font-semibold text-sm tracking-wide">CHARACTER SETS</h3>
                     <div class="grid grid-cols-2 gap-2">
-                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
-                            <input type="checkbox" id="uppercase" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                        <label class="checkbox-label flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="uppercase" class="form-checkbox h-5 w-5 text-blue-500 rounded">
                             <span class="text-white/90 text-sm">A-Z</span>
                         </label>
-                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
-                            <input type="checkbox" id="lowercase" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                        <label class="checkbox-label flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="lowercase" class="form-checkbox h-5 w-5 text-blue-500 rounded">
                             <span class="text-white/90 text-sm">a-z</span>
                         </label>
-                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
-                            <input type="checkbox" id="numbers" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                        <label class="checkbox-label flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="numbers" class="form-checkbox h-5 w-5 text-blue-500 rounded">
                             <span class="text-white/90 text-sm">0-9</span>
                         </label>
-                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
-                            <input type="checkbox" id="symbols" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                        <label class="checkbox-label flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="symbols" class="form-checkbox h-5 w-5 text-blue-500 rounded">
                             <span class="text-white/90 text-sm">!@#$</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Generate Button -->
-                <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/50">
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/50">
                     <div class="flex items-center justify-center space-x-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
@@ -84,10 +84,10 @@
             </form>
 
             <!-- 🎨 Results Section -->
-            <div id="results-section" class="mt-5 space-y-4 hidden">
+            <div id="results-section" class="mt-4 space-y-3 hidden">
                 <!-- Password Display -->
                 <div class="relative">
-                    <div class="bg-black/20 backdrop-blur-sm border border-white/30 rounded-2xl p-4">
+                    <div class="bg-black/20 backdrop-blur-sm border border-white/30 rounded-2xl p-3">
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-white/80 text-sm font-medium">GENERATED PASSWORD</span>
                             <button id="regenerate" class="text-blue-300 hover:text-blue-200 transition-colors">
@@ -173,15 +173,6 @@
                 </div>
             </div>
 
-            <!-- Success/Error Messages -->
-            <div id="notification" class="fixed top-4 right-4 transform translate-x-full transition-transform duration-300 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg">
-                <div class="flex items-center space-x-2">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    <span id="notification-text">Password copied to clipboard!</span>
-                </div>
-            </div>
         </div>
 
         <!-- Attribution -->
@@ -237,10 +228,18 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
-    /* Custom checkbox styling */
+    /* Simple checkbox styling */
+    .form-checkbox {
+        background-color: transparent;
+        border: 2px solid white;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
     .form-checkbox:checked {
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        border-color: transparent;
+        background-color: transparent !important;
+        border-color: white !important;
+        color: white !important;
     }
 
     /* Password reveal animation */
@@ -277,8 +276,6 @@
     const regenerateBtn = document.getElementById("regenerate");
     const strengthWrapper = document.getElementById("strength-wrapper");
     const strengthLabel = document.getElementById("strength-label");
-    const notification = document.getElementById("notification");
-    const notificationText = document.getElementById("notification-text");
 
     // Character set checkboxes
     const uppercaseCheck = document.getElementById("uppercase");
@@ -369,20 +366,6 @@
         return level;
     }
 
-    // 🎨 Beautiful notification system
-    function showNotification(message, type = 'success') {
-        notificationText.textContent = message;
-
-        if (type === 'success') {
-            notification.className = "fixed top-4 right-4 transform translate-x-0 transition-transform duration-300 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg";
-        } else {
-            notification.className = "fixed top-4 right-4 transform translate-x-0 transition-transform duration-300 bg-red-500 text-white px-6 py-3 rounded-xl shadow-lg";
-        }
-
-        setTimeout(() => {
-            notification.className = "fixed top-4 right-4 transform translate-x-full transition-transform duration-300 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg";
-        }, 3000);
-    }
 
     // 🎯 Main password generation function
     async function generatePassword() {
@@ -390,7 +373,6 @@
 
         // Validate at least one character set is selected
         if (!uppercaseCheck.checked && !lowercaseCheck.checked && !numbersCheck.checked && !symbolsCheck.checked) {
-            showNotification("Please select at least one character set!", 'error');
             return;
         }
 
@@ -409,7 +391,16 @@
             `;
 
             // Call API
-            const res = await fetch(`/api/generate?length=${length}`);
+            // Build query string with character set selections
+            const params = new URLSearchParams({
+                length: length,
+                uppercase: uppercaseCheck.checked,
+                lowercase: lowercaseCheck.checked,
+                numbers: numbersCheck.checked,
+                symbols: symbolsCheck.checked
+            });
+
+            const res = await fetch(`/api/generate?${params}`);
             const data = await res.json();
 
             // Restore button
@@ -428,12 +419,11 @@
                 strengthLabel.textContent = strength.label;
                 strengthLabel.className = `text-sm font-bold ${strength.textColor}`;
 
-                showNotification("Secure password generated successfully!");
             } else {
-                showNotification(data.error || "Failed to generate password", 'error');
+                console.log(data.error || "Failed to generate password");
             }
         } catch (error) {
-            showNotification("Network error. Please try again.", 'error');
+            console.log("Network error. Please try again.");
         }
     }
 
@@ -448,9 +438,8 @@
                 copyBtn.style.transform = "scale(1)";
             }, 150);
 
-            showNotification("Password copied to clipboard!");
         } catch (error) {
-            showNotification("Failed to copy password", 'error');
+            console.log("Failed to copy password");
         }
     });
 
@@ -467,7 +456,6 @@
         document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
 
-        showNotification("Password saved to file!");
     });
 
     // 🔄 Regenerate password
@@ -482,16 +470,40 @@
         generatePassword();
     });
 
-    // 🎨 Add hover effects to character set options
+    // 🎨 Add real-time validation to character set options
     [uppercaseCheck, lowercaseCheck, numbersCheck, symbolsCheck].forEach(checkbox => {
-        checkbox.parentElement.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
+        // Add real-time validation feedback
+        checkbox.addEventListener('change', validateCharacterSets);
+    });
+
+    // ✅ Real-time character set validation
+    function validateCharacterSets() {
+        const hasSelection = uppercaseCheck.checked || lowercaseCheck.checked ||
+                           numbersCheck.checked || symbolsCheck.checked;
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        console.log('Validation check:', {
+            uppercase: uppercaseCheck.checked,
+            lowercase: lowercaseCheck.checked,
+            numbers: numbersCheck.checked,
+            symbols: symbolsCheck.checked,
+            hasSelection: hasSelection
         });
 
-        checkbox.parentElement.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
+        if (!hasSelection) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.5';
+            submitBtn.style.cursor = 'not-allowed';
+        } else {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            submitBtn.style.cursor = 'pointer';
+        }
+    }
+
+    // Initialize validation on page load
+    validateCharacterSets();
 
     // 🌟 Initialize with a default password
     window.addEventListener('load', () => {
