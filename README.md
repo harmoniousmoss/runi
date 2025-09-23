@@ -1,3 +1,5 @@
+![FlexBit Professional Password Generator](https://icbotbz40ngrmv6r.public.blob.vercel-storage.com/FlexBit.png)
+
 ## FlexBit - Professional Password Generator
 
 FlexBit is a stunning, professional password generation web application built with Phoenix Framework and Elixir. Features a beautiful glassmorphism interface, configurable character sets, advanced animations, and comprehensive security options. Demonstrates modern full-stack development with Phoenix, advanced CSS techniques, and responsive design principles.
@@ -7,23 +9,23 @@ FlexBit is a stunning, professional password generation web application built wi
 ### 🎨 Beautiful Modern Interface
 - **Glassmorphism Design**: Stunning backdrop-blur effects with gradient backgrounds
 - **Animated Background**: Floating particles with dynamic animations
-- **Professional Styling**: Clean, modern interface with hover effects and micro-interactions
-- **Responsive Design**: Perfect experience across all devices and screen sizes
+- **Clean Professional Styling**: Minimal, distraction-free interface design
+- **Responsive Layout**: Perfect experience across all devices and screen sizes
 - **Fullscreen Experience**: Immersive interface that fills the entire viewport
 
 ### 🔐 Advanced Security Options
 - **Configurable Character Sets**: Toggle uppercase, lowercase, numbers, and symbols independently
-- **Flexible Password Length**: Generate passwords from 1-24 characters
-- **Smart Validation**: Ensures at least one character type is always selected
-- **Real-time Strength Evaluation**: Visual strength meter with detailed criteria
+- **Flexible Password Length**: Generate passwords from 1-24 characters (slider control)
+- **Smart Validation**: Real-time button state changes based on selections
+- **Visual Strength Evaluation**: Color-coded strength meter with detailed criteria
 - **Secure Generation**: Cryptographically secure random character selection
 
 ### 🚀 User Experience
-- **One-Click Copy**: Instant clipboard functionality with visual feedback
-- **Live Preview**: Real-time password generation as you adjust settings
-- **Smooth Animations**: Polished transitions and micro-interactions
-- **Intuitive Controls**: Beautiful range slider and checkbox interfaces
-- **Success Notifications**: Toast notifications for user actions
+- **One-Click Copy**: Instant clipboard functionality with button animations
+- **Real-time Generation**: Immediate password creation with character set selections
+- **Clean Visual Feedback**: Button state changes and checkbox styling without popups
+- **Intuitive Controls**: Beautiful range slider and clear checkbox interfaces
+- **Compact Layout**: Optimized spacing that adapts to content without scrolling
 
 ## Password Strength Logic
 
