@@ -1,105 +1,502 @@
-<!-- 🌐 Main container with styling using Tailwind CSS -->
-<div class="max-w-md p-6 mx-auto mt-10 border rounded shadow">
-    <!-- 🧾 App Title -->
-    <h1 class="mb-4 text-2xl font-bold text-center">🔐 PPG - Phoenix Password Generator</h1>
+<!-- 🌟 Beautiful gradient background with animated particles -->
+<div class="h-screen w-screen relative overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <!-- Animated background particles -->
+    <div class="absolute inset-0">
+        <div class="floating-particle absolute w-2 h-2 bg-white/20 rounded-full animate-bounce" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-particle absolute w-1 h-1 bg-blue-300/30 rounded-full animate-pulse" style="top: 60%; left: 80%; animation-delay: 1s;"></div>
+        <div class="floating-particle absolute w-3 h-3 bg-purple-300/20 rounded-full animate-ping" style="top: 30%; left: 70%; animation-delay: 2s;"></div>
+        <div class="floating-particle absolute w-1.5 h-1.5 bg-pink-300/25 rounded-full animate-bounce" style="top: 80%; left: 20%; animation-delay: 3s;"></div>
+        <div class="floating-particle absolute w-2 h-2 bg-indigo-300/30 rounded-full animate-pulse" style="top: 40%; left: 30%; animation-delay: 4s;"></div>
+    </div>
 
-    <!-- 🔢 Form for selecting password length and generating a password -->
-    <form id="form" class="space-y-4">
-        <!-- Label for length input -->
-        <label class="block text-sm font-medium text-gray-700" for="length">
-            Password Length (1-24)
-        </label>
+    <!-- Main container with glassmorphism effect -->
+    <div class="flex flex-col items-center justify-center h-screen p-4">
+        <div class="w-full max-w-lg backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-8 transform transition-all duration-500 hover:scale-105">
 
-        <!-- Numeric input field for password length (min 1, max 24) -->
-        <input type="number" id="length" name="length" min="1" max="24" value="12"
-            class="w-full px-3 py-2 border rounded" />
+            <!-- 🏆 Stunning Header -->
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-3 shadow-lg">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent mb-1">
+                    FlexBit
+                </h1>
+                <p class="text-white/80 text-base">Professional Password Generator</p>
+                <div class="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-2 rounded-full"></div>
+            </div>
 
-        <!-- Submit button -->
-        <button type="submit" class="w-full py-2 text-white bg-blue-600 rounded hover:bg-blue-700">
-            Generate Password
-        </button>
-    </form>
+            <!-- 🎛️ Enhanced Form -->
+            <form id="form" class="space-y-4">
+                <!-- Password Length Section -->
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <label class="text-white/90 font-semibold text-sm tracking-wide" for="length">
+                            PASSWORD LENGTH
+                        </label>
+                        <span id="length-display" class="text-blue-300 font-bold text-lg">12</span>
+                    </div>
 
-    <!-- 📦 Section for showing the result and strength feedback -->
-    <div class="mt-6">
-        <!-- Display the generated password -->
-        <p id="result" class="font-mono text-lg break-words"></p>
+                    <!-- Custom Range Slider -->
+                    <div class="relative">
+                        <input type="range" id="length" name="length" min="1" max="24" value="12"
+                            class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer slider">
+                        <div class="flex justify-between text-xs text-white/60 mt-1">
+                            <span>1</span>
+                            <span>24</span>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Password strength meter (initially hidden) -->
-        <div id="strength-wrapper" class="hidden mt-2">
-            <!-- Colored bar indicating strength level -->
-            <div class="h-2 rounded-full" id="strength-bar"></div>
-            <!-- Text label indicating strength level -->
-            <p id="strength-label" class="mt-1 text-sm font-semibold"></p>
+                <!-- Advanced Options -->
+                <div class="space-y-3">
+                    <h3 class="text-white/90 font-semibold text-sm tracking-wide">CHARACTER SETS</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="uppercase" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                            <span class="text-white/90 text-sm">A-Z</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="lowercase" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                            <span class="text-white/90 text-sm">a-z</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="numbers" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                            <span class="text-white/90 text-sm">0-9</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2.5 bg-white/10 rounded-xl cursor-pointer hover:bg-white/15 transition-all">
+                            <input type="checkbox" id="symbols" checked class="form-checkbox h-5 w-5 text-blue-500 rounded">
+                            <span class="text-white/90 text-sm">!@#$</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold rounded-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/50">
+                    <div class="flex items-center justify-center space-x-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+                        </svg>
+                        <span>Generate Secure Password</span>
+                    </div>
+                </button>
+            </form>
+
+            <!-- 🎨 Results Section -->
+            <div id="results-section" class="mt-5 space-y-4 hidden">
+                <!-- Password Display -->
+                <div class="relative">
+                    <div class="bg-black/20 backdrop-blur-sm border border-white/30 rounded-2xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-white/80 text-sm font-medium">GENERATED PASSWORD</span>
+                            <button id="regenerate" class="text-blue-300 hover:text-blue-200 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <p id="result" class="font-mono text-xl text-white break-all select-all tracking-wide"></p>
+                    </div>
+                </div>
+
+                <!-- Enhanced Strength Meter -->
+                <div id="strength-wrapper" class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-white/80 text-sm font-medium">PASSWORD STRENGTH</span>
+                        <span id="strength-label" class="text-sm font-bold"></span>
+                    </div>
+
+                    <!-- Multi-segment strength bar -->
+                    <div class="flex space-x-1 h-2">
+                        <div id="strength-bar-1" class="flex-1 bg-white/20 rounded-full transition-all duration-500"></div>
+                        <div id="strength-bar-2" class="flex-1 bg-white/20 rounded-full transition-all duration-500"></div>
+                        <div id="strength-bar-3" class="flex-1 bg-white/20 rounded-full transition-all duration-500"></div>
+                        <div id="strength-bar-4" class="flex-1 bg-white/20 rounded-full transition-all duration-500"></div>
+                    </div>
+
+                    <!-- Strength details -->
+                    <div id="strength-details" class="grid grid-cols-2 gap-2 text-xs">
+                        <div id="check-length" class="flex items-center space-x-2 text-white/60">
+                            <div class="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center">
+                                <svg class="w-2.5 h-2.5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span>8+ characters</span>
+                        </div>
+                        <div id="check-case" class="flex items-center space-x-2 text-white/60">
+                            <div class="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center">
+                                <svg class="w-2.5 h-2.5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span>Mixed case</span>
+                        </div>
+                        <div id="check-numbers" class="flex items-center space-x-2 text-white/60">
+                            <div class="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center">
+                                <svg class="w-2.5 h-2.5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span>Numbers</span>
+                        </div>
+                        <div id="check-symbols" class="flex items-center space-x-2 text-white/60">
+                            <div class="w-4 h-4 rounded-full border border-white/40 flex items-center justify-center">
+                                <svg class="w-2.5 h-2.5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span>Symbols</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex space-x-3">
+                    <button id="copy" class="flex-1 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500/50">
+                        <div class="flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>Copy</span>
+                        </div>
+                    </button>
+                    <button id="save" class="flex-1 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-xl transform transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500/50">
+                        <div class="flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                            </svg>
+                            <span>Save</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Success/Error Messages -->
+            <div id="notification" class="fixed top-4 right-4 transform translate-x-full transition-transform duration-300 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span id="notification-text">Password copied to clipboard!</span>
+                </div>
+            </div>
         </div>
 
-        <!-- 📋 Copy to clipboard button (initially hidden) -->
-        <button id="copy" class="hidden w-full py-2 mt-4 text-white bg-gray-700 rounded hover:bg-gray-800">
-            Copy to Clipboard
-        </button>
+        <!-- Attribution -->
+        <div class="text-center mt-6">
+            <p class="text-white/60 text-sm">A project by <span class="text-white/80 font-medium">Syaeful Bahri</span></p>
+        </div>
     </div>
 </div>
 
-<!-- 🚀 JavaScript: Handles password generation, strength evaluation, and clipboard copy -->
-<script>
-    // 📌 Select DOM elements
-    const form = document.getElementById("form");
-    const result = document.getElementById("result");
-    const copyBtn = document.getElementById("copy");
-    const strengthBar = document.getElementById("strength-bar");
-    const strengthLabel = document.getElementById("strength-label");
-    const strengthWrapper = document.getElementById("strength-wrapper");
-
-    // 🧠 Function to evaluate password strength
-    function evaluateStrength(password) {
-        let score = 0;
-        if (password.length >= 8) score++;                           // Checks length
-        if (/[A-Z]/.test(password) && /[a-z]/.test(password)) score++; // Checks case mix
-        if (/[0-9]/.test(password)) score++;                         // Checks digits
-        if (/[^A-Za-z0-9]/.test(password)) score++;                 // Checks symbols
-
-        // 📊 Define strength levels and corresponding visual styles
-        const levels = [
-            { label: "Weak", color: "bg-red-500", percent: "33%" },
-            { label: "Medium", color: "bg-yellow-500", percent: "66%" },
-            { label: "Strong", color: "bg-green-500", percent: "100%" }
-        ];
-
-        // Return appropriate level or fallback to Weak
-        const level = levels[Math.min(score - 1, 2)];
-        return level || levels[0];
+<!-- 🎨 Custom CSS for enhanced styling -->
+<style>
+    /* Custom slider styling */
+    .slider::-webkit-slider-thumb {
+        appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        border: 2px solid white;
+        transition: all 0.3s ease;
     }
 
-    // 📥 Event handler for form submission
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault(); // Prevent page reload
-        const length = document.getElementById("length").value;
+    .slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+    }
 
-        // 🛰️ Call backend API to generate password
-        const res = await fetch(`/api/generate?length=${length}`);
-        const data = await res.json();
+    .slider::-moz-range-thumb {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        cursor: pointer;
+        border: 2px solid white;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
 
-        // ✅ If password returned, display it and update strength meter
-        if (data.password) {
-            result.textContent = `🔑 ${data.password}`;
-            copyBtn.classList.remove("hidden");
+    /* Floating particles animation */
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
+    }
 
-            const strength = evaluateStrength(data.password);
-            strengthBar.className = `h-2 rounded-full transition-all ${strength.color}`;
-            strengthBar.style.width = strength.percent;
-            strengthLabel.textContent = `Strength: ${strength.label}`;
-            strengthWrapper.classList.remove("hidden");
+    .floating-particle {
+        animation: float 6s ease-in-out infinite;
+    }
 
-            // 📋 Copy to clipboard logic
-            copyBtn.onclick = () => {
-                navigator.clipboard.writeText(data.password);
-                alert("Copied to clipboard!");
-            };
+    /* Glassmorphism card hover effect */
+    .glass-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Custom checkbox styling */
+    .form-checkbox:checked {
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        border-color: transparent;
+    }
+
+    /* Password reveal animation */
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-in {
+        animation: slideIn 0.5s ease-out;
+    }
+
+    /* Strength bar fill animation */
+    @keyframes fillBar {
+        from { width: 0%; }
+        to { width: var(--target-width); }
+    }
+
+    .strength-fill {
+        animation: fillBar 0.8s ease-out;
+    }
+</style>
+
+<!-- 🚀 Enhanced JavaScript with beautiful animations and interactions -->
+<script>
+    // 📌 DOM Element References
+    const form = document.getElementById("form");
+    const lengthSlider = document.getElementById("length");
+    const lengthDisplay = document.getElementById("length-display");
+    const result = document.getElementById("result");
+    const resultsSection = document.getElementById("results-section");
+    const copyBtn = document.getElementById("copy");
+    const saveBtn = document.getElementById("save");
+    const regenerateBtn = document.getElementById("regenerate");
+    const strengthWrapper = document.getElementById("strength-wrapper");
+    const strengthLabel = document.getElementById("strength-label");
+    const notification = document.getElementById("notification");
+    const notificationText = document.getElementById("notification-text");
+
+    // Character set checkboxes
+    const uppercaseCheck = document.getElementById("uppercase");
+    const lowercaseCheck = document.getElementById("lowercase");
+    const numbersCheck = document.getElementById("numbers");
+    const symbolsCheck = document.getElementById("symbols");
+
+    // Strength indicators
+    const strengthBars = [
+        document.getElementById("strength-bar-1"),
+        document.getElementById("strength-bar-2"),
+        document.getElementById("strength-bar-3"),
+        document.getElementById("strength-bar-4")
+    ];
+
+    const strengthChecks = {
+        length: document.getElementById("check-length"),
+        case: document.getElementById("check-case"),
+        numbers: document.getElementById("check-numbers"),
+        symbols: document.getElementById("check-symbols")
+    };
+
+    let currentPassword = "";
+
+    // 🎛️ Length slider interaction
+    lengthSlider.addEventListener("input", (e) => {
+        lengthDisplay.textContent = e.target.value;
+        lengthDisplay.style.transform = "scale(1.1)";
+        setTimeout(() => {
+            lengthDisplay.style.transform = "scale(1)";
+        }, 150);
+    });
+
+    // 🧠 Enhanced password strength evaluation
+    function evaluateStrength(password) {
+        let score = 0;
+        const checks = {
+            length: password.length >= 8,
+            case: /[A-Z]/.test(password) && /[a-z]/.test(password),
+            numbers: /[0-9]/.test(password),
+            symbols: /[^A-Za-z0-9]/.test(password)
+        };
+
+        // Update visual checkmarks
+        Object.keys(checks).forEach(check => {
+            const element = strengthChecks[check];
+            const icon = element.querySelector('svg');
+            const container = element.querySelector('div');
+
+            if (checks[check]) {
+                score++;
+                icon.classList.remove('hidden');
+                container.classList.add('bg-green-500', 'border-green-500');
+                container.classList.remove('border-white/40');
+                element.classList.add('text-green-300');
+                element.classList.remove('text-white/60');
+            } else {
+                icon.classList.add('hidden');
+                container.classList.remove('bg-green-500', 'border-green-500');
+                container.classList.add('border-white/40');
+                element.classList.remove('text-green-300');
+                element.classList.add('text-white/60');
+            }
+        });
+
+        // Define strength levels with enhanced styling
+        const levels = [
+            { label: "Very Weak", color: "bg-red-500", textColor: "text-red-300" },
+            { label: "Weak", color: "bg-orange-500", textColor: "text-orange-300" },
+            { label: "Medium", color: "bg-yellow-500", textColor: "text-yellow-300" },
+            { label: "Strong", color: "bg-green-500", textColor: "text-green-300" },
+            { label: "Very Strong", color: "bg-emerald-500", textColor: "text-emerald-300" }
+        ];
+
+        const level = levels[Math.min(score, 4)];
+
+        // Animate strength bars
+        strengthBars.forEach((bar, index) => {
+            setTimeout(() => {
+                if (index < score) {
+                    bar.className = `flex-1 ${level.color} rounded-full transition-all duration-500 strength-fill`;
+                } else {
+                    bar.className = "flex-1 bg-white/20 rounded-full transition-all duration-500";
+                }
+            }, index * 100);
+        });
+
+        return level;
+    }
+
+    // 🎨 Beautiful notification system
+    function showNotification(message, type = 'success') {
+        notificationText.textContent = message;
+
+        if (type === 'success') {
+            notification.className = "fixed top-4 right-4 transform translate-x-0 transition-transform duration-300 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg";
         } else {
-            // ❌ Handle invalid input
-            result.textContent = "❌ Invalid input.";
-            copyBtn.classList.add("hidden");
-            strengthWrapper.classList.add("hidden");
+            notification.className = "fixed top-4 right-4 transform translate-x-0 transition-transform duration-300 bg-red-500 text-white px-6 py-3 rounded-xl shadow-lg";
         }
+
+        setTimeout(() => {
+            notification.className = "fixed top-4 right-4 transform translate-x-full transition-transform duration-300 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg";
+        }, 3000);
+    }
+
+    // 🎯 Main password generation function
+    async function generatePassword() {
+        const length = lengthSlider.value;
+
+        // Validate at least one character set is selected
+        if (!uppercaseCheck.checked && !lowercaseCheck.checked && !numbersCheck.checked && !symbolsCheck.checked) {
+            showNotification("Please select at least one character set!", 'error');
+            return;
+        }
+
+        try {
+            // Add loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = `
+                <div class="flex items-center justify-center space-x-2">
+                    <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span>Generating...</span>
+                </div>
+            `;
+
+            // Call API
+            const res = await fetch(`/api/generate?length=${length}`);
+            const data = await res.json();
+
+            // Restore button
+            submitBtn.innerHTML = originalText;
+
+            if (data.password) {
+                currentPassword = data.password;
+
+                // Show results with animation
+                result.textContent = data.password;
+                resultsSection.classList.remove("hidden");
+                resultsSection.classList.add("slide-in");
+
+                // Evaluate and display strength
+                const strength = evaluateStrength(data.password);
+                strengthLabel.textContent = strength.label;
+                strengthLabel.className = `text-sm font-bold ${strength.textColor}`;
+
+                showNotification("Secure password generated successfully!");
+            } else {
+                showNotification(data.error || "Failed to generate password", 'error');
+            }
+        } catch (error) {
+            showNotification("Network error. Please try again.", 'error');
+        }
+    }
+
+    // 📋 Enhanced copy to clipboard
+    copyBtn.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(currentPassword);
+
+            // Animate button
+            copyBtn.style.transform = "scale(0.95)";
+            setTimeout(() => {
+                copyBtn.style.transform = "scale(1)";
+            }, 150);
+
+            showNotification("Password copied to clipboard!");
+        } catch (error) {
+            showNotification("Failed to copy password", 'error');
+        }
+    });
+
+    // 💾 Save password functionality
+    saveBtn.addEventListener("click", () => {
+        const blob = new Blob([`Generated Password: ${currentPassword}\nGenerated on: ${new Date().toLocaleString()}`],
+                             { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `password_${Date.now()}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+
+        showNotification("Password saved to file!");
+    });
+
+    // 🔄 Regenerate password
+    regenerateBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        generatePassword();
+    });
+
+    // 📝 Form submission
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        generatePassword();
+    });
+
+    // 🎨 Add hover effects to character set options
+    [uppercaseCheck, lowercaseCheck, numbersCheck, symbolsCheck].forEach(checkbox => {
+        checkbox.parentElement.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+        });
+
+        checkbox.parentElement.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+
+    // 🌟 Initialize with a default password
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            generatePassword();
+        }, 500);
     });
 </script>
