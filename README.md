@@ -2,7 +2,7 @@
 
 ## Flexbit - Stunning, professional password generation
 
-FlexBit is a stunning, professional password generation web application built with Phoenix Framework and Elixir. Features a beautiful glassmorphism interface, configurable character sets, advanced animations, and comprehensive security options. Demonstrates modern full-stack development with Phoenix, advanced CSS techniques, and responsive design principles.
+FlexBit generates secure passwords with a beautiful, modern interface. Customize password length and character types to create strong passwords for all your accounts.
 
 ## ✨ Features
 
